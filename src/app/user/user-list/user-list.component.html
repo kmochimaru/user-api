@@ -1,0 +1,60 @@
+<button mat-raised-button matTooltip="Add user" matTooltipShowDelay="200" class="color-success" (click)="newUserDialog()"><mat-icon class="white-text">add</mat-icon></button>
+<br><br>
+<div class="table-container mat-elevation-z8">
+  <div class="filter-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <!-- <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+      <mat-spinner></mat-spinner>
+  </div> -->
+
+  <mat-table #table [dataSource]="dataSource" matSort>
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
+      <mat-cell *matCellDef="let user" align="center"> {{user.id}} </mat-cell>
+    </ng-container>
+
+    <!-- First Name Column -->
+    <ng-container matColumnDef="first_name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.first_name}} </mat-cell>
+    </ng-container>
+
+    <!-- Last Name Column -->
+    <ng-container matColumnDef="last_name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.last_name}} </mat-cell>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
+    </ng-container>
+
+    <!-- Password Column -->
+    <ng-container matColumnDef="password">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Password </mat-header-cell>
+      <mat-cell *matCellDef="let user" align="center"> {{user.password}} </mat-cell>
+    </ng-container>
+
+    <!-- Edit/Delete Column -->
+    <ng-container matColumnDef="manage">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Manage user </mat-header-cell>
+      <mat-cell *matCellDef="let user" align="center"> 
+        <button mat-raised-button (click)="updateUserDialog(user.id)" matTooltip="Edit user" matTooltipShowDelay="200" class="color-warn"><mat-icon class="white-text">edit</mat-icon></button>
+        <button mat-raised-button (click)="deleteUserDialog(user.id)" matTooltip="Delete user" matTooltipShowDelay="200" class="color-danger"><mat-icon class="white-text">delete</mat-icon></button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator [length]="5" [pageSize]="5" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+</div>

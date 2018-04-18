@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="mat-dialog-header"><h2 mat-dialog-title>Delete user id: {{ id }}</h2></div>
+  <form (ngSubmit)="onSubmit()">
+    <mat-dialog-content>
+      <p>Will you delete user id {{ id }} ?</p>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button class="btn-cancel" type="submit">Yes</button>
+      <button mat-button class="btn-gray" mat-dialog-close>No</button>
+    </mat-dialog-actions>
+  </form>
+</div>

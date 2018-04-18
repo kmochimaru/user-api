@@ -1,0 +1,37 @@
+/* Structure */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+  
+  .filter-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+
+  .mat-raised-button {
+    min-width: 1%;
+  }
+
+  .color-success {
+    background: #00897B;
+  }
+
+  .color-warn {
+    background: #FF9800;
+  }
+
+  .color-danger {
+    background: #B71C1C;
+  }
